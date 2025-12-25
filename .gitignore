@@ -1,0 +1,10 @@
+# macOS noise
+.DS_Store
+
+# Environment variables
+.env
+
+# Node / Python junk (future-proofing)
+node_modules/
+__pycache__/
+*.pyc

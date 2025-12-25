@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AXIS BLUE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg: #0a0e1a;
+      --fg: #e7ebf4;
+      --muted: rgba(231, 235, 244, 0.6);
+      --accent: #5fa8ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(
+        1200px circle at top center,
+        #121836 0%,
+        var(--bg) 60%
+      );
+      color: var(--fg);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    main {
+      width: 100%;
+      max-width: 760px;
+      padding: 3.5rem 2rem 4.5rem;
+      text-align: center;
+    }
+
+    /* Logo protection: never stretch, never distort */
+    .logo {
+      display: block;
+      max-width: 140px;
+      width: auto;
+      height: auto;
+      margin: 0 auto 3rem;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.45));
+    }
+
+    h1 {
+      margin: 0 0 2.25rem;
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+    }
+
+    .statement {
+      max-width: 620px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    .statement p {
+      margin: 0 0 1.6rem;
+    }
+
+    .statement strong {
+      color: var(--fg);
+      font-weight: 500;
+    }
+
+    footer {
+      width: 100%;
+      padding: 1.5rem 1rem 1.75rem;
+      text-align: center;
+      font-size: 0.75rem;
+      line-height: 1.4;
+      color: rgba(231, 235, 244, 0.45);
+    }
+
+    footer a {
+      color: rgba(231, 235, 244, 0.65);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <img
+      src="assets/axis_logo.png"
+      alt="AXIS BLUE logo"
+      class="logo"
+    />
+
+    <h1>AXIS BLUE</h1>
+
+    <div class="statement">
+      <p>
+        <strong>AXIS BLUE exists to bridge the gap</strong> between physically
+        demanding field execution and modern operational intelligence.
+      </p>
+
+      <p>
+        It is designed to reduce friction, increase clarity, and bring structure
+        to work that has traditionally lived only in motion, memory, and muscle.
+      </p>
+
+      <p>
+        AXIS BLUE turns everyday activity into reliable data, practical insight,
+        and informed decision-making — without losing sight of the realities on
+        the ground.
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <div>
+      AXIS BLUE is an independently developed operational intelligence platform.
+      Not an official corporate product.
+    </div>
+    <div>
+      Contact:
+      <a href="mailto:gabriel.kearns@axisblue.io">
+        gabriel.kearns@axisblue.io
+      </a>
+    </div>
+  </footer>
+</body>
+</html>
