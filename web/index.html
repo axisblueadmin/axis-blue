@@ -9,25 +9,26 @@
     :root {
       --bg: #0a0e1a;
       --fg: #e7ebf4;
-      --muted: rgba(231, 235, 244, 0.6);
+      --muted: rgba(231, 235, 244, 0.68);
+      --muted2: rgba(231, 235, 244, 0.52);
       --accent: #5fa8ff;
+      --card: rgba(255,255,255,0.04);
+      --stroke: rgba(255,255,255,0.10);
+      --stroke2: rgba(255,255,255,0.16);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       min-height: 100vh;
-      background: radial-gradient(
-        1200px circle at top center,
-        #121836 0%,
-        var(--bg) 60%
-      );
+      background: radial-gradient(1200px circle at top center, #121836 0%, var(--bg) 60%);
       color: var(--fg);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
+
+      /* Modern + thinner look (no external fonts required) */
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-weight: 300;
+
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -36,8 +37,8 @@
 
     main {
       width: 100%;
-      max-width: 760px;
-      padding: 3.5rem 2rem 4.5rem;
+      max-width: 820px;
+      padding: 3.25rem 2rem 3.5rem;
       text-align: center;
     }
 
@@ -47,94 +48,182 @@
       max-width: 140px;
       width: auto;
       height: auto;
-      margin: 0 auto 3rem;
+      margin: 0 auto 2.25rem;
       object-fit: contain;
       filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.45));
     }
 
     h1 {
-      margin: 0 0 2.25rem;
-      font-size: 1.4rem;
-      font-weight: 600;
-      letter-spacing: 0.28em;
+      margin: 0 0 1.6rem;
+      font-size: 1.05rem;
+      font-weight: 500;            /* keep title crisp even with thin body */
+      letter-spacing: 0.32em;
+      opacity: 0.95;
     }
 
     .statement {
-      max-width: 620px;
-      margin: 0 auto;
-      font-size: 1.05rem;
-      line-height: 1.75;
+      max-width: 680px;
+      margin: 0 auto 1.9rem;
+      font-size: 1.03rem;
+      line-height: 1.78;
       color: var(--muted);
     }
 
-    .statement p {
-      margin: 0 0 1.6rem;
-    }
+    .statement p { margin: 0 0 1.05rem; }
 
     .statement strong {
       color: var(--fg);
+      font-weight: 550;            /* modern emphasis without being bold-y */
+    }
+
+    /* Subtle divider line for rhythm */
+    .divider {
+      width: 100%;
+      max-width: 520px;
+      height: 1px;
+      margin: 1.55rem auto 1.45rem;
+      background: linear-gradient(90deg, transparent, var(--stroke2), transparent);
+    }
+
+    /* Pill buttons */
+    .actions {
+      display: flex;
+      gap: 0.85rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1.15rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.25rem;
+      min-width: 210px;
+      border-radius: 999px;        /* elongated oval */
+      border: 1px solid var(--stroke2);
+      background: rgba(255, 255, 255, 0.03);
+      color: rgba(231, 235, 244, 0.92);
+      text-decoration: none;
+      font-size: 0.92rem;
       font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    .pill:hover {
+      transform: translateY(-1px);
+      border-color: rgba(95,168,255,0.55);
+      background: rgba(95, 168, 255, 0.07);
+    }
+
+    .pill.primary {
+      border-color: rgba(95,168,255,0.60);
+      background: rgba(95, 168, 255, 0.10);
+    }
+
+    .pill.secondary {
+      border-color: rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.03);
+    }
+
+    /* Optional small helper text under buttons */
+    .hint {
+      margin-top: 0.9rem;
+      font-size: 0.78rem;
+      color: var(--muted2);
+      letter-spacing: 0.02em;
     }
 
     footer {
       width: 100%;
-      padding: 1.5rem 1rem 1.75rem;
+      padding: 1.35rem 1rem 1.6rem;
       text-align: center;
       font-size: 0.75rem;
-      line-height: 1.4;
+      line-height: 1.45;
       color: rgba(231, 235, 244, 0.45);
     }
 
     footer a {
-      color: rgba(231, 235, 244, 0.65);
+      color: rgba(231, 235, 244, 0.68);
       text-decoration: none;
     }
 
-    footer a:hover {
-      text-decoration: underline;
-    }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 
 <body>
   <main>
-    <img
-      src="assets/axis_logo.png"
-      alt="AXIS BLUE logo"
-      class="logo"
-    />
+    <img src="assets/axis_logo.png" alt="AXIS BLUE logo" class="logo" />
 
     <h1>AXIS BLUE</h1>
 
     <div class="statement">
+      <p><strong>AXIS BLUE exists to support the people who do the work.</strong></p>
+
       <p>
-        <strong>AXIS BLUE exists to bridge the gap</strong> between physically
-        demanding field execution and modern operational intelligence.
+        It was built for frontline operators, merchandisers, and field teams whose days are physically demanding,
+        fast-moving, and often invisible once the work is finished. Too much critical effort lives only in motion,
+        memory, and muscle — lost the moment the shift ends.
+      </p>
+
+      <p><strong>AXIS BLUE bridges the gap between that reality and modern operational intelligence.</strong></p>
+
+      <p>
+        The platform is designed to reduce friction, increase clarity, and bring structure to work that has historically
+        been difficult to document without slowing people down. It respects the constraints of real field work — limited
+        time, limited energy, constant movement — while quietly capturing what matters.
       </p>
 
       <p>
-        It is designed to reduce friction, increase clarity, and bring structure
-        to work that has traditionally lived only in motion, memory, and muscle.
+        AXIS BLUE turns everyday activity into reliable data, practical insight, and informed decision-making, without
+        abstracting away the realities on the ground. It does not replace human judgment, experience, or accountability —
+        it preserves them.
       </p>
 
       <p>
-        AXIS BLUE turns everyday activity into reliable data, practical insight,
-        and informed decision-making — without losing sight of the realities on
-        the ground.
+        For frontline employees, AXIS BLUE provides structure, protection, and clarity around the work they already do.<br/>
+        For managers and leadership, it provides visibility, consistency, and trust — grounded in evidence, not assumptions.
       </p>
+
+      <p><strong>This platform was not created to monitor people.</strong><br/>
+        It was created to support them, reduce unnecessary stress, and make good work visible.
+      </p>
+
+      <p>
+        AXIS BLUE is an operational intelligence layer — not a replacement for existing systems, but a connective layer
+        that turns execution into understanding.
+      </p>
+
+      <div class="divider"></div>
+
+      <div class="actions">
+        <!-- Replace href targets when ready -->
+        <a class="pill primary" href="https://app.axisblue.io" target="_blank" rel="noopener">
+          OPEN WEB PORTAL
+        </a>
+
+        <a class="pill secondary" href="#" aria-disabled="true" onclick="return false;">
+          iOS APP (COMING SOON)
+        </a>
+      </div>
+
+      <div class="hint">
+        Web Portal is active. iOS App link will route to the App Store when released.
+      </div>
     </div>
   </main>
 
   <footer>
     <div>
-      AXIS BLUE is an independently developed operational intelligence platform.
-      Not an official corporate product.
+      AXIS BLUE is an independently developed operational intelligence platform. Not an official corporate product.
     </div>
     <div>
       Contact:
-      <a href="mailto:gabriel.kearns@axisblue.io">
-        gabriel.kearns@axisblue.io
-      </a>
+      <a href="mailto:gabriel.kearns@axisblue.io">gabriel.kearns@axisblue.io</a>
     </div>
   </footer>
 </body>
